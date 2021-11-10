@@ -1,1 +1,39 @@
 /* Other rules */
+.header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.logo {
+  display: flex;
+}
+.search {
+  color: rgb(106, 106, 106);
+  display: flex;
+  background: #f5f6f7;
+  width: 590px;
+  height: 37px;
+  border: none;
+  border-radius: 6px;
+}
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+}
+.teal-button {
+  color: white;
+  background: #10adb7;
+  height: 30px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+.white-button {
+  cursor: pointer;
+  background: white;
+  border: 1px solid #10adb7;
+  border-radius: 6px;
+  height: 30px;
+  color: #10adb7;
+}
