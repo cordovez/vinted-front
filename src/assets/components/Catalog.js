@@ -3,7 +3,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import Vendor from "../assets/img/user-empty-state.svg";
 
-const Home = () => {
+const Catalog = () => {
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
@@ -48,4 +48,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Catalog;

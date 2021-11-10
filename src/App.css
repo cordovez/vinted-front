@@ -46,18 +46,20 @@
 }
 /* Offer */
 .home-offer-card {
+  display: flex;
   width: 230px;
   cursor: pointer;
+  flex-wrap: wrap;
 }
 .home-offer-card:hover {
   border: solid 1px lightgray;
 }
-.home-product {
+.home-product-photo {
+  display: flex;
   margin-top: 10px;
   margin-right: 40px;
   width: 230px;
   height: 350px;
-  overflow: hidden;
   object-fit: cover;
 }
 .home-product-info {

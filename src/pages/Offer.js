@@ -1,10 +1,7 @@
-import { useParams } from "react-router-dom";
 import Header from "../assets/components/Header";
 import Jeans from "../assets/img/jeans.jpg";
 
 const Product = () => {
-  const { id } = useParams();
-
   return (
     <div>
       <Header />

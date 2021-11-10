@@ -1,5 +1,6 @@
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Header from "./assets/components/Header";
 
 import Navigation from "./assets/components/Navigation";
 import Home from "./pages/Home";
@@ -13,6 +14,7 @@ function App() {
   return (
     <>
       <Router>
+        <Header />
         <Navigation />
         <Routes>
           <Route path="/" element={<Home />}>
@@ -30,7 +32,7 @@ function App() {
           <Route path="/shop" element={<Shop />}>
             Shop
           </Route>
-          <Route path="/offer" element={<Offer />}>
+          <Route path="/offer/:id" element={<Offer />}>
             Product
           </Route>
         </Routes>

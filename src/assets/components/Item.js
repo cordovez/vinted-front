@@ -1,4 +1,3 @@
-import Jeans from "../img/jeans.jpg";
 import Vendor from "../img/user-empty-state.svg";
 
 const Item = () => {
