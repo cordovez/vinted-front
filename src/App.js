@@ -7,7 +7,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import FAQ from "./pages/FAQ";
 import Shop from "./pages/Shop";
-import Product from "./pages/Product";
+import Offer from "./pages/Offer";
 
 function App() {
   return (
@@ -30,7 +30,7 @@ function App() {
           <Route path="/shop" element={<Shop />}>
             Shop
           </Route>
-          <Route path="/product/:id" element={<Product />}>
+          <Route path="/offer" element={<Offer />}>
             Product
           </Route>
         </Routes>

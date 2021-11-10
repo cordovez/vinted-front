@@ -1,8 +1,15 @@
 /* Other rules */
+.body {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 900px;
+  justify-content: center;
+}
 .header {
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  background: white;
 }
 .logo {
   display: flex;
@@ -36,4 +43,67 @@
   border-radius: 6px;
   height: 30px;
   color: #10adb7;
+}
+/* Offer */
+.home-offer-card {
+  width: 230px;
+  cursor: pointer;
+}
+.home-offer-card:hover {
+  border: solid 1px lightgray;
+}
+.home-product {
+  margin-top: 10px;
+  margin-right: 40px;
+  width: 230px;
+  height: 350px;
+  overflow: hidden;
+  object-fit: cover;
+}
+.home-product-info {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 0.75em;
+  color: #8a8a8a;
+  line-height: 8px;
+  margin-top: 10px;
+}
+.vendor {
+  width: 25px;
+  height: 25px;
+  object-fit: cover;
+  border-radius: 25px;
+}
+.vendor-social {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 0.75em;
+  color: #8a8a8a;
+}
+.offer-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+.offer-card {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  width: 400px;
+  background: white;
+  padding: 20px;
+  border-radius: 6px;
+}
+.acheter {
+  display: flex;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1em;
+  text-align: center;
+  display: flex;
+  background: #10adb7;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+/*  */
+body {
+  background: #eaedee;
 }
