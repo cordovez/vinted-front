@@ -1,7 +1,8 @@
+import Vendor from "../img/user-empty-state.svg";
+
 import axios from "axios";
 
 import { useState, useEffect } from "react";
-import Vendor from "../assets/img/user-empty-state.svg";
 
 const Catalog = () => {
   const [data, setData] = useState({});

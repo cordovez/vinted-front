@@ -1,10 +1,4 @@
 /* Other rules */
-.body {
-  display: flex;
-  flex-wrap: wrap;
-  max-width: 900px;
-  justify-content: center;
-}
 .header {
   display: flex;
   justify-content: flex-start;
@@ -44,18 +38,28 @@
   height: 30px;
   color: #10adb7;
 }
-/* Offer */
+/* Catalog */
+.catalog {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  width: 900px;
+  flex-wrap: wrap;
+}
 .home-offer-card {
   display: flex;
   width: 230px;
   cursor: pointer;
   flex-wrap: wrap;
+  box-sizing: border-box;
+  margin-right: 40px;
+  margin-top: 10px;
+  margin-bottom: 50px;
 }
 .home-offer-card:hover {
   border: solid 1px lightgray;
 }
 .home-product-photo {
-  display: flex;
   margin-top: 10px;
   margin-right: 40px;
   width: 230px;
@@ -74,6 +78,8 @@
   height: 25px;
   object-fit: cover;
   border-radius: 25px;
+  box-shadow: 0px 1px 3px rgb(185, 185, 185);
+  margin-right: 10px;
 }
 .vendor-social {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -83,11 +89,11 @@
 .offer-container {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 .offer-card {
   display: flex;
   flex-direction: column;
-  margin-top: 10px;
   width: 400px;
   background: white;
   padding: 20px;
