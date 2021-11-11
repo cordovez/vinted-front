@@ -1,5 +1,5 @@
 import Vendor from "../img/user-empty-state.svg";
-
+import { Link } from "react-router-dom";
 import axios from "axios";
 
 import { useState, useEffect } from "react";
@@ -28,19 +28,32 @@ const Catalog = () => {
     data.offers.map((offer) => {
       return (
         <div className="container">
-          <div className="home-offer-card">
-            <div className="vendor-badge">
-              <img className="vendor-avatar" src={Vendor} alt="product" />{" "}
-              <span className="vendor-name">JC Corman</span>
+          <Link key={offer._id} to={`/offer/${offer._id}`}>
+            <div className="home-offer-card">
+              <div className="vendor-badge">
+                <img className="vendor-avatar" src={Vendor} alt="product" />{" "}
+                <span className="vendor-name">JC Corman</span>
+              </div>
+              <div>
+                <img
+                  className="home-product-photo"
+                  src={offer.product_image.secure_url}
+                  alt="product"
+                />
+              </div>
+              <div className="infos">
+                <div>
+                  <div className="home-product-info"> {offer.product_name}</div>
+                  <div className="home-product-info">
+                    {offer.product_description}
+                  </div>
+                  <div className="home-product-info price">
+                    {offer.product_price} €
+                  </div>
+                </div>
+              </div>
             </div>
-            <div>
-              <img
-                className="home-product-photo"
-                src={offer.product_image.secure_url}
-                alt="product"
-              />
-            </div>{" "}
-          </div>
+          </Link>
         </div>
       );
     })

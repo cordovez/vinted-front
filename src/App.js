@@ -12,13 +12,8 @@ function App() {
       <Router>
         <Header />
         <Routes>
-          <Route path="/" element={<Home />}>
-            Home
-          </Route>
-
-          <Route path="/offer/:id" element={<Offer />}>
-            Product
-          </Route>
+          <Route path="/" element={<Home />}></Route>
+          <Route path="/offer/:id" element={<Offer />}></Route>
         </Routes>
       </Router>
     </>

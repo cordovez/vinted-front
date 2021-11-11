@@ -1,12 +1,14 @@
 import Logo from "../img/vinted.svg";
-
+import { Link } from "react-router-dom";
 const Header = () => {
   return (
     <div className="header">
       <div className="container">
-        <div className="logo">
-          <img src={Logo} alt="vinted-logo" />
-        </div>
+        <Link to={"/"}>
+          <div className="logo">
+            <img src={Logo} alt="vinted-logo" />
+          </div>
+        </Link>
         <div className="search">
           <input
             className="search"

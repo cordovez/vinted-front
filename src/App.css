@@ -6,7 +6,6 @@
 }
 .container {
   max-width: 1280px;
-  padding: 0 20px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -124,18 +123,25 @@
 }
 .home-product-photo {
   margin: 10px 30px;
-
   width: 230px;
   height: 350px;
   object-fit: cover;
   background: white;
 }
 .home-product-info {
+  width: 230px;
+  display: flex;
+  flex-wrap: wrap;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 0.75em;
   color: #8a8a8a;
-  line-height: 8px;
+  line-height: 14px;
   margin-top: 10px;
+  margin-left: 30px;
+}
+.price {
+  color: black;
+  font-weight: bold;
 }
 
 .offer-container {
@@ -150,6 +156,15 @@
   background: white;
   padding: 20px;
   border-radius: 6px;
+}
+
+/* OFFER */
+.buy {
+  width: 300px;
+  height: 600px;
+  background: white;
+  display: flex;
+  margin-top: 20px;
 }
 .acheter {
   display: flex;
