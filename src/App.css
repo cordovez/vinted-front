@@ -10,6 +10,9 @@
   align-items: center;
   justify-content: center;
 }
+body {
+  background: #eaedee;
+}
 /* HEADER */
 .header {
   display: flex;
@@ -179,6 +182,3 @@
   cursor: pointer;
 }
 /*  */
-body {
-  background: #eaedee;
-}

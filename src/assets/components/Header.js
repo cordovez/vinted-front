@@ -17,9 +17,12 @@ const Header = () => {
           />
         </div>
         <nav className="topnav">
-          <button className="white-button visible">
-            S'inscrire | Se connecter
-          </button>
+          <Link to="/signup">
+            <button className="white-button visible">
+              S'inscrire | Se connecter
+            </button>
+          </Link>
+
           <button className="teal-button visible">Vends Maintenant</button>
           <button className="purple-button hidden">Vends Maintenant</button>
         </nav>
