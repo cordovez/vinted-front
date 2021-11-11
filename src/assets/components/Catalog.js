@@ -26,29 +26,23 @@ const Catalog = () => {
     <p>En cours de chargement...</p>
   ) : (
     data.offers.map((offer) => {
-      return offer.product_pictures.map((photo) => {
-        return (
+      return (
+        <div className="container">
           <div className="home-offer-card">
-            <img src={Vendor} alt="user" className="vendor" />
-            <span className="vendor-social"> Juan Carlos</span>
-            <img
-              src={photo.secure_url}
-              alt="product"
-              className="home-product-photo"
-            />
-            {offer.product_details.map((detail) => {
-              return (
-                <div>
-                  {detail.MARQUE}
-                  {detail.ÉTAT}
-                  {detail.COULEUR}
-                  {detail.EMPLACEMENT}
-                </div>
-              );
-            })}
+            <div className="vendor-badge">
+              <img className="vendor-avatar" src={Vendor} alt="product" />{" "}
+              <span className="vendor-name">JC Corman</span>
+            </div>
+            <div>
+              <img
+                className="home-product-photo"
+                src={offer.product_image.secure_url}
+                alt="product"
+              />
+            </div>{" "}
           </div>
-        );
-      });
+        </div>
+      );
     })
   );
 };
