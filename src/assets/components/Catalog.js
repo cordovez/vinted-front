@@ -31,7 +31,11 @@ const Catalog = () => {
           <div className="home-offer-card">
             <img src={Vendor} alt="user" className="vendor" />
             <span className="vendor-social"> Juan Carlos</span>
-            <img src={photo.url} alt="product" className="home-product-photo" />
+            <img
+              src={photo.secure_url}
+              alt="product"
+              className="home-product-photo"
+            />
             {offer.product_details.map((detail) => {
               return (
                 <div>
