@@ -1,8 +1,7 @@
-import "./assets/components/CSS/reset.css";
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Header from "./assets/components/Header";
 
+import Header from "./assets/components/Header";
 import Home from "./pages/Home";
 import Signup from "./pages/Signup";
 import Offer from "./pages/Offer";
