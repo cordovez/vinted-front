@@ -29,19 +29,19 @@ const Catalog = () => {
       return (
         <div className="container">
           <Link key={offer._id} to={`/offer/${offer._id}`}>
-            <div className="home-offer-card">
+            <div className="home-offer-card" key={offer._id}>
               <div className="vendor-badge">
                 <img className="vendor-avatar" src={Vendor} alt="product" />{" "}
                 <span className="vendor-name">JC Corman</span>
               </div>
-              <div>
+              <div key={offer.product_image.asset_id}>
                 <img
                   className="home-product-photo"
                   src={offer.product_image.secure_url}
                   alt="product"
                 />
               </div>
-              <div className="infos">
+              <div className="infos" key={offer._id}>
                 <div>
                   <div className="home-product-info"> {offer.product_name}</div>
                   <div className="home-product-info">

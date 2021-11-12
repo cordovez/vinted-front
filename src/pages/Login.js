@@ -1,10 +1,8 @@
-import "../assets/components/CSS/signup.css";
-import { useState } from "react";
 import axios from "axios";
+import { useState } from "react";
 import { useNavigate } from "react-router";
 
-const Signup = ({ setUser }) => {
-  const [username, setUserName] = useState("");
+const Login = ({ setUser }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
@@ -15,14 +13,9 @@ const Signup = ({ setUser }) => {
     try {
       event.preventDefault();
       const response = await axios.post(
-        "https://lereacteur-vinted-api.herokuapp.com/user/signup",
-        {
-          username: username,
-          email: email,
-          password: password,
-        }
+        "https://lereacteur-vinted-api.herokuapp.com/user/login",
+        { email: email, password: password }
       );
-      console.log(response);
       if (response.data.token) {
         setUser(response.data.token);
         navigate("/");
@@ -30,23 +23,16 @@ const Signup = ({ setUser }) => {
     } catch (error) {
       console.log(error.response);
       console.log(error.message);
-      if (error.response.status === 409) {
-        setErrorMessage("user already exists, please use login instead");
+      if (error.response.status === 401) {
+        setErrorMessage("incorrect email/password combination");
       }
     }
   };
-
   return (
     <div className="container">
       <div className="signup-box">
         <h1>S'inscrire</h1>
         <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            value={username}
-            placeholder="Nom d'utilisateur"
-            onChange={(event) => setUserName(event.target.value)}
-          />
           <input
             type="email"
             value={email}
@@ -60,12 +46,8 @@ const Signup = ({ setUser }) => {
             onChange={(event) => setPassword(event.target.value)}
           />
 
-          <input type="checkbox" />
-
-          <p>S'inscrire à notre newsletter</p>
-
-          <button type="submit" value={"S'inscrire"} className="subscribe">
-            S'inscrire
+          <button type="submit" value={"S'connecter"} className="subscribe">
+            S'connecter
           </button>
           <p className="error">{errorMessage}</p>
         </form>
@@ -73,5 +55,4 @@ const Signup = ({ setUser }) => {
     </div>
   );
 };
-
-export default Signup;
+export default Login;
