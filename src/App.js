@@ -3,9 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Header from "./assets/components/Header";
 import Home from "./pages/Home";
-import Signup from "./pages/Signup";
 import Offer from "./pages/Offer";
-import Login from "./pages/Login";
 
 import { useState } from "react";
 import Cookies from "js-cookie";
@@ -27,8 +25,6 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />}></Route>
           <Route path="/offer/:id" element={<Offer />}></Route>
-          <Route path="/signup" element={<Signup setUser={setUser} />}></Route>
-          <Route path="/login" element={<Login setUser={setUser} />}></Route>
         </Routes>
       </Router>
     </>

@@ -4,8 +4,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router";
 
-const Signup = ({ setUser, modal, setModal }) => {
-  const [username, setUserName] = useState("");
+const Login = ({ modal2, setModal2 }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
@@ -16,51 +15,42 @@ const Signup = ({ setUser, modal, setModal }) => {
     try {
       event.preventDefault();
       const response = await axios.post(
-        "https://lereacteur-vinted-api.herokuapp.com/user/signup",
+        "https://lereacteur-vinted-api.herokuapp.com/user/login",
         {
-          username: username,
           email: email,
           password: password,
         }
       );
       console.log(response);
       if (response.data.token) {
-        setUser(response.data.token);
         navigate("/");
       }
     } catch (error) {
       console.log(error.response);
       console.log(error.message);
-      if (error.response.status === 409) {
-        setErrorMessage(error.response.data.message);
+      if (error.response.status === "401") {
+        setErrorMessage("incorrect email/password combination");
       }
     }
   };
 
   return (
-    <div className={`${modal === "false" ? "hidden" : "modal"}`}>
-      <div className="signup-box">
+    <div className={`${modal2 === "false" ? "hidden2" : "modal2"}`}>
+      <div className="login-box">
         <button
+          className="kill"
           type="text"
           onClick={() => {
-            setModal("false");
+            setModal2("false");
           }}
-          className="kill"
         >
           X
         </button>
         <div className="headline">
-          <h1>S'inscrire</h1>
+          <h1>Se connecter</h1>
         </div>
 
         <form onSubmit={handleSubmit} className="form">
-          <input
-            type="text"
-            value={username}
-            placeholder="Nom d'utilisateur"
-            onChange={(event) => setUserName(event.target.value)}
-            className="input-field"
-          />
           <input
             type="email"
             value={email}
@@ -75,14 +65,8 @@ const Signup = ({ setUser, modal, setModal }) => {
             onChange={(event) => setPassword(event.target.value)}
             className="input-field"
           />
-          <div className="newsletter">
-            <div className="checkbox">
-              <input type="checkbox" />
-            </div>
-            <p>S'inscrire à notre newsletter</p>
-          </div>
 
-          <button type="submit" value={"S'inscrire"} className="submit">
+          <button type="submit" value={"Se connecter"} className="submit">
             Submit
           </button>
           <p className="error">{errorMessage}</p>
@@ -92,4 +76,4 @@ const Signup = ({ setUser, modal, setModal }) => {
   );
 };
 
-export default Signup;
+export default Login;

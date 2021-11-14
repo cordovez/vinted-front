@@ -5,15 +5,19 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 import ModalSignup from "./ModalSignup";
+import ModalLogin from "./ModalLogin";
 
 const Header = ({ token, setUser }) => {
   const navigate = useNavigate();
   const [modal, setModal] = useState("false");
+  const [modal2, setModal2] = useState("false");
+  const [disconnect, setDisconnect] = useState("hidden");
+
   return (
     <>
       <div className="header">
         <ModalSignup modal={modal} setModal={setModal} />
-
+        <ModalLogin modal2={modal2} setModal2={setModal2} />
         <div className="container">
           <Link to={"/"}>
             <div className="logo">
@@ -29,11 +33,12 @@ const Header = ({ token, setUser }) => {
           </div>
           {token ? (
             <button
+              className={{ disconnect }}
               onClick={() => {
                 setUser(null);
                 navigate("/");
+                setDisconnect("hidden");
               }}
-              className="disconnect"
             >
               Déconnexion
             </button>
@@ -49,8 +54,15 @@ const Header = ({ token, setUser }) => {
                   S'inscrire
                 </button>
               </Link>
-              <Link to="/login">
-                <button className="white-button">Se connecter</button>
+              <Link to="/">
+                <button
+                  onClick={() => {
+                    setModal2("true");
+                  }}
+                  className="white-button"
+                >
+                  Se connecter
+                </button>
               </Link>
             </nav>
           )}
