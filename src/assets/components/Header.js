@@ -26,8 +26,8 @@ const Header = () => {
   return (
     <>
       <div className="header">
-        <ModalSignup modal={modal} setModal={setModal} />
-        <ModalLogin modal2={modal2} setModal2={setModal2} />
+        <ModalSignup modal={modal} setModal={setModal} setUser={setUser} />
+        <ModalLogin modal2={modal2} setModal2={setModal2} setUser={setUser} />
         <div className="container">
           <Link to={"/"}>
             <div className="logo">

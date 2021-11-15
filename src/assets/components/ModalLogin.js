@@ -9,8 +9,6 @@ const Login = ({ modal2, setModal2, setUser }) => {
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
-  const navigate = useNavigate();
-
   const handleSubmit = async (event) => {
     try {
       event.preventDefault();
@@ -24,7 +22,7 @@ const Login = ({ modal2, setModal2, setUser }) => {
       console.log(response);
       if (response.data.token) {
         setUser(response.data.token);
-        navigate("/");
+        setModal2("false");
       }
     } catch (error) {
       console.log(error.response);
