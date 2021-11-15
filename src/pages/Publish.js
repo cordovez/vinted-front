@@ -2,25 +2,31 @@ import "../assets/components/CSS/publish.css";
 
 import { useState } from "react";
 import axios from "axios";
+import Cookies from "js-cookie";
 
-const Publish = ({ userToken }) => {
+const Publish = () => {
   const [file, setFile] = useState({});
   const [title, setTitle] = useState("");
+  const [price, setPrice] = useState();
   const [data, setData] = useState();
+  const userToken = Cookies.get("userToken");
+
+  console.log("my user token   ", userToken);
+
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     const formData = new FormData();
-    formData.append("files", file);
+    formData.append("picture", file);
     formData.append("title", title);
-
+    formData.append("price", price);
     try {
       const response = await axios.post(
         "https://lereacteur-vinted-api.herokuapp.com/offer/publish",
         formData,
         {
           headers: {
-            Authorization: "Bearer " + { userToken },
+            Authorization: "Bearer " + userToken,
             "Content-type": "multipart/form-data",
           },
         }
@@ -31,7 +37,7 @@ const Publish = ({ userToken }) => {
       if (error.response.status === 500) {
         console.error("An error exists");
       } else {
-        console.error(error.response.data.msg);
+        console.error(error.response.data.message);
       }
     }
   };
@@ -45,7 +51,7 @@ const Publish = ({ userToken }) => {
               <input
                 id="upload"
                 type="file"
-                onClick={(event) => {
+                onChange={(event) => {
                   setFile(event.target.files[0]);
                 }}
               />
@@ -84,6 +90,9 @@ const Publish = ({ userToken }) => {
             type="text-area"
             defaultValue="0,00 €"
             className="description"
+            onChange={(event) => {
+              setPrice(event.target.value);
+            }}
           ></input>
         </div>
         <div className="submit">
