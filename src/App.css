@@ -47,9 +47,6 @@ body {
   justify-content: space-between;
   align-content: center;
 }
-.hidden {
-  display: none;
-}
 .disconnect {
   padding: 0 6px;
   font-size: 0.75em;

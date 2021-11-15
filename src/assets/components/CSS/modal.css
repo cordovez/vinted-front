@@ -2,9 +2,6 @@
 .hidden2 {
   display: none;
 }
-/* .hidden2 {
-  display: none;
-} */
 .modal,
 .modal2 {
   display: flex;
@@ -99,5 +96,14 @@
   cursor: pointer;
 }
 .submit {
-  margin-bottom: 40px;
+  margin-bottom: 20px;
+}
+.error {
+  display: flex;
+  width: 80%;
+  align-content: center;
+  align-self: center;
+  color: red;
+  margin-bottom: 30px;
+  line-height: 1.5em;
 }

@@ -4,7 +4,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router";
 
-const Login = ({ modal2, setModal2 }) => {
+const Login = ({ modal2, setModal2, setUser }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
@@ -23,12 +23,13 @@ const Login = ({ modal2, setModal2 }) => {
       );
       console.log(response);
       if (response.data.token) {
+        setUser(response.data.token);
         navigate("/");
       }
     } catch (error) {
       console.log(error.response);
       console.log(error.message);
-      if (error.response.status === "401") {
+      if (error.status === 401) {
         setErrorMessage("incorrect email/password combination");
       }
     }
@@ -69,7 +70,9 @@ const Login = ({ modal2, setModal2 }) => {
           <button type="submit" value={"Se connecter"} className="submit">
             Submit
           </button>
-          <p className="error">{errorMessage}</p>
+          <div className="error">
+            <p>{errorMessage}</p>
+          </div>
         </form>
       </div>
     </div>

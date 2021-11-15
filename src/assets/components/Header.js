@@ -3,16 +3,26 @@ import "./CSS/modal.css";
 import Logo from "../img/vinted.svg";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import Cookies from "js-cookie";
 
 import ModalSignup from "./ModalSignup";
 import ModalLogin from "./ModalLogin";
 
-const Header = ({ token, setUser }) => {
+const Header = () => {
   const navigate = useNavigate();
   const [modal, setModal] = useState("false");
   const [modal2, setModal2] = useState("false");
-  const [disconnect, setDisconnect] = useState("hidden");
+  // const [disconnect, setDisconnect] = useState("visible");
 
+  const [token, setToken] = useState(null);
+  const setUser = (token) => {
+    if (token) {
+      Cookies.set("user-token", token, { expires: 30 });
+    } else {
+      Cookies.remove("user-token");
+    }
+    setToken(token);
+  };
   return (
     <>
       <div className="header">
@@ -31,17 +41,19 @@ const Header = ({ token, setUser }) => {
               placeholder="Recherche des articles "
             />
           </div>
+
           {token ? (
-            <button
-              className={{ disconnect }}
-              onClick={() => {
-                setUser(null);
-                navigate("/");
-                setDisconnect("hidden");
-              }}
-            >
-              Déconnexion
-            </button>
+            <div className="disconnect">
+              <button
+                className="disconnect"
+                onClick={() => {
+                  setUser(null);
+                  navigate("/");
+                }}
+              >
+                Déconnexion
+              </button>
+            </div>
           ) : (
             <nav>
               <Link to="/">
@@ -68,7 +80,7 @@ const Header = ({ token, setUser }) => {
           )}
 
           <div className="sell">
-            <button className="teal-button visible">Vends Maintenant</button>
+            <button className="teal-button">Vends Maintenant</button>
           </div>
         </div>
       </div>

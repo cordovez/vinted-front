@@ -32,7 +32,7 @@ const Signup = ({ setUser, modal, setModal }) => {
       console.log(error.response);
       console.log(error.message);
       if (error.response.status === 409) {
-        setErrorMessage(error.response.data.message);
+        setErrorMessage("User already exists. Please use log in button");
       }
     }
   };
@@ -85,7 +85,9 @@ const Signup = ({ setUser, modal, setModal }) => {
           <button type="submit" value={"S'inscrire"} className="submit">
             Submit
           </button>
-          <p className="error">{errorMessage}</p>
+          <div className="error">
+            <p>{errorMessage}</p>
+          </div>
         </form>
       </div>
     </div>
