@@ -6,39 +6,39 @@ import axios from "axios";
 const Publish = ({ userToken }) => {
   const [file, setFile] = useState({});
   const [title, setTitle] = useState("");
+  const [data, setData] = useState();
+  const handleSubmit = async (event) => {
+    event.preventDefault();
 
+    const formData = new FormData();
+    formData.append("files", file);
+    formData.append("title", title);
+
+    try {
+      const response = await axios.post(
+        "https://lereacteur-vinted-api.herokuapp.com/offer/publish",
+        formData,
+        {
+          headers: {
+            Authorization: "Bearer " + { userToken },
+            "Content-type": "multipart/form-data",
+          },
+        }
+      );
+      console.log(response.data);
+      setData(response.data);
+    } catch (error) {
+      if (error.response.status === 500) {
+        console.error("An error exists");
+      } else {
+        console.error(error.response.data.msg);
+      }
+    }
+  };
   return (
     <div className="container-publish">
       <h1>Vends ton article</h1>
-      <form
-        onSubmit={async (event) => {
-          event.preventDefault();
-
-          const formData = new FormData();
-          formData.append("files", file);
-          formData.append("title", title);
-
-          try {
-            const response = await axios.post(
-              "https://lereacteur-vinted-api.herokuapp.com/offer/publish",
-              formData,
-              {
-                headers: {
-                  Authorization: "Bearer " + userToken,
-                  "Content-type": "multipart/form-data",
-                },
-              }
-            );
-            alert(JSON.stringify(response.data));
-          } catch (error) {
-            if (error.response.status === 500) {
-              console.error("An error exists");
-            } else {
-              console.error(error.response.data.msg);
-            }
-          }
-        }}
-      >
+      <form onSubmit={handleSubmit}>
         <div className="load-photo">
           <div className="marching-ants">
             <label className="custom-upload">
@@ -86,6 +86,10 @@ const Publish = ({ userToken }) => {
             className="description"
           ></input>
         </div>
+        <div className="submit">
+          <button type="submit">Submit</button>
+        </div>
+        {data && <img src={data.secure_url} alt="" />}
       </form>
     </div>
   );

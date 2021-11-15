@@ -97,3 +97,20 @@ input[type="file"] {
 #price {
   margin-top: 20px;
 }
+.submit {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+  font-size: 1.5em;
+}
+.submit button {
+  width: 100px;
+  padding: 0 6px;
+  font-size: 0.75em;
+  color: white;
+  background: #10adb7;
+  height: 30px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
