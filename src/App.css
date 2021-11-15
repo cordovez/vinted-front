@@ -91,6 +91,8 @@ body {
 /* CATALOG */
 .catalog {
   display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
   flex-wrap: wrap;
   margin: 60px auto;
   width: 1024px;

@@ -2,7 +2,6 @@ import "./CSS/modal.css";
 
 import { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router";
 
 const Signup = ({ setUser, modal, setModal }) => {
   const [username, setUserName] = useState("");

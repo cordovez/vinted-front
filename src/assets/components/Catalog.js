@@ -22,6 +22,7 @@ const Catalog = () => {
     };
     fetchData();
   }, []);
+
   return isLoading ? (
     <p>En cours de chargement...</p>
   ) : (
@@ -32,7 +33,9 @@ const Catalog = () => {
             <div className="home-offer-card" key={offer._id}>
               <div className="vendor-badge">
                 <img className="vendor-avatar" src={Vendor} alt="product" />{" "}
-                <span className="vendor-name">JC Corman</span>
+                <span className="vendor-name">
+                  {offer.owner.account.username}
+                </span>
               </div>
               <div key={offer.product_image.asset_id}>
                 <img

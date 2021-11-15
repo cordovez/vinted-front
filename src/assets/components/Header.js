@@ -17,9 +17,9 @@ const Header = () => {
   const [token, setToken] = useState(null);
   const setUser = (token) => {
     if (token) {
-      Cookies.set("user-token", token, { expires: 30 });
+      Cookies.set("userToken", token, { expires: 30 });
     } else {
-      Cookies.remove("user-token");
+      Cookies.remove("userToken");
     }
     setToken(token);
   };
@@ -80,7 +80,18 @@ const Header = () => {
           )}
 
           <div className="sell">
-            <button className="teal-button">Vends Maintenant</button>
+            <button
+              className="teal-button"
+              onClick={() => {
+                if (token) {
+                  navigate("/publish");
+                } else {
+                  setModal2("true");
+                }
+              }}
+            >
+              Vends Maintenant
+            </button>
           </div>
         </div>
       </div>
