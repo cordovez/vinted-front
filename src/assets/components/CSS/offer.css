@@ -1,0 +1,50 @@
+body#offer {
+  background: #f5f6f7;
+  height: 100vh;
+}
+
+.container {
+  max-width: 1280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0px auto 0;
+}
+.offer {
+  display: flex;
+  margin-top: 40px;
+}
+
+.offer-image img {
+  display: flex;
+  height: 600px;
+  width: 600px;
+  margin-top: 0;
+}
+.product {
+  background: white;
+  width: 300px;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px;
+}
+.product-price {
+  font-size: 2em;
+}
+.product-info {
+  align-self: flex-start;
+}
+.buy {
+  display: flex;
+  justify-content: center;
+  width: 100px;
+  height: 40px;
+  border-style: none;
+  background: #0db0ba;
+  color: white;
+  border-radius: 6pt;
+  cursor: pointer;
+}

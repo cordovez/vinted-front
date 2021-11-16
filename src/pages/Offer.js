@@ -2,6 +2,9 @@ import { useParams } from "react-router";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
+import "../assets/components/CSS/offer.css";
+import { Link } from "react-router-dom";
+
 const Offer = () => {
   const { id } = useParams();
 
@@ -26,29 +29,29 @@ const Offer = () => {
   return isLoading ? (
     <h1>Data is loading ...</h1>
   ) : (
-    <div className="container">
-      <div className="home-offer-card">
-        <div>
-          <img
-            className="home-product-photo"
-            src={data.product_image.secure_url}
-            alt="product"
-          />
-        </div>
-        <div className="infos">
-          <div>
-            <div className="home-product-info"> {data.product_name}</div>
-            <div className="home-product-info">{data.product_description}</div>
-            <div className="home-product-info price">
-              {data.product_price} €
-            </div>
+    <body id="offer">
+      <div className="container">
+        <div className="offer">
+          <div className="offer-image">
+            <img
+              className="home-product-photo"
+              src={data.product_image.secure_url}
+              alt="product"
+            />
+          </div>
+
+          <div className="product">
+            <div className="product-price">{data.product_price} €</div>
+
+            <div className="product-info"> {data.product_name}</div>
+            <div className="product-info">{data.product_description}</div>
+            <Link to="/payment">
+              <input type="submit" className="buy" value="Acheter" />
+            </Link>
           </div>
         </div>
       </div>
-      <div className="buy">
-        <div className="home-product-info price">{data.product_price} €</div>
-      </div>
-    </div>
+    </body>
   );
 };
 export default Offer;
