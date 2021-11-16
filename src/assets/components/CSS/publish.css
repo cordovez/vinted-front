@@ -1,8 +1,8 @@
 ::placeholder {
   color: rgb(107, 107, 107);
 }
-body {
-  background: white;
+body#publish {
+  background: #f5f6f7;
 }
 .hidden {
   display: none;
