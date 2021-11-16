@@ -1,5 +1,11 @@
 body {
-  background: #ebedee;
+  background: white;
+}
+::placeholder {
+  color: rgb(107, 107, 107);
+}
+.hidden {
+  display: none;
 }
 /* typography */
 h1,
@@ -9,8 +15,54 @@ h3 {
   color: rgb(107, 107, 107);
 }
 h1 {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 30px;
   font-size: 1.5em;
 }
+/* Hero */
+.hero-background {
+  position: relative;
+  margin-top: 20px;
+}
+.hero-background img {
+  width: 100%;
+  height: 620px;
+  object-fit: cover;
+}
+.tear {
+}
+.tear img {
+  display: flex;
+  position: absolute;
+  top: 505px;
+  right: 0px;
+  height: 150px;
+  width: 50%;
+}
+.discover {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  position: absolute;
+  top: 200px;
+  left: 150px;
+  width: 400px;
+  height: 250px;
+  background: white;
+  border-radius: 6px;
+}
+.discover h1 {
+  font-size: 2em;
+  line-height: 1.5em;
+  color: black;
+  font-weight: normal;
+  display: flex;
+  margin-bottom: 40px;
+}
+/* Header */
 
 .container-publish {
   margin: 0 auto;
@@ -20,11 +72,7 @@ h1 {
   justify-content: center;
   flex-wrap: wrap;
 }
-h1 {
-  display: flex;
-  justify-content: flex-start;
-  margin-top: 30px;
-}
+
 .load-photo {
   display: flex;
   height: 200px;
@@ -67,8 +115,16 @@ input[type="file"] {
   font-weight: bold;
 }
 /* Article Info */
+#preview {
+  position: absolute;
+  top: auto;
+  max-width: 400px;
+  max-height: 400px;
+  object-fit: cover;
+}
 .box {
   display: flex;
+  flex-wrap: wrap;
   background: white;
   padding: 20px;
   border-bottom: 1px solid #dfdfdf;
@@ -97,6 +153,10 @@ input[type="file"] {
 #price {
   margin-top: 20px;
 }
+#brand {
+  margin-top: 20px;
+}
+
 .submit {
   display: flex;
   justify-content: flex-end;
